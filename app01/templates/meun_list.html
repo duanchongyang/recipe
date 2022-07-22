@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+	<div class="container">
+		<div style="margin-bottom: 10px">
+
+			<a class="btn btn-success" href="/meun/add/">    {#target="_blank"#}
+				<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+				Create new recipe
+			</a>
+		</div>
+		<table class="table">
+			<caption>
+				<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+				Menu list
+			</caption>
+			<thead>
+			<tr>
+				{#				<th>ID</th>#}
+				<th><h3>Picture</h3></th>
+				<th><h3>Name</h3></th>
+				<th><h3>Time</h3></th>
+				<th><h3>Temperature</h3></th>
+				<th><h3>Material</h3></th>
+				<th><h3>Operation</h3></th>
+			</tr>
+			</thead>
+			<tbody>
+			{% for obj in queryset %}
+				<tr uid="{{ obj.id }}">
+					<td>
+						<img src="/media/{{ obj.img }}" style="height: 200px">
+					</td>
+					{#					<th>{{ obj.id }}</th>#}
+					<td><h3>{{ obj.name }}</h3></td>
+					<td><h3>{{ obj.time }}</h3></td>
+					<td><h3>{{ obj.tem }}</h3></td>
+					<td><h3>{{ obj.inter }}</h3></td>
+
+					<td>
+						<a class="btn btn-primary btn-lg" href="/meun/{{ obj.id }}/edit/">Edit</a>
+						<a class="btn btn-danger btn-lg" href="/meun/{{ obj.id }}/delete/">Delete</a>
+					</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+		<ul class="pagination">
+			{{ page_string }}
+		</ul>
+
+
+	</div>
+
+{% endblock %}

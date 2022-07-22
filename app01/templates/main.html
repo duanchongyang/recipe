@@ -1,0 +1,366 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+	{% load static %}
+	<style>
+        .thumbnail {
+            width: 100%;
+            padding: 2px;
+        }
+
+        .sub-header a {
+            float: left;
+            width: 99px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .three {
+            margin-top: 50px;
+            margin-right: 100px;
+        }
+
+        .container .w {
+            background-color: #fff;
+            padding: 10px 0;
+        }
+
+        .w {
+            width: 400px;
+            margin-left: 60px;
+
+            margin-top: -15px;
+            margin-right: 40px;
+
+        }
+
+
+        .sub-header a img {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 5px;
+            border-radius: 50%;
+        }
+
+        .sub-header {
+            margin-top: 20px;
+            margin-left: 10px;
+
+        }
+
+        .row {
+
+            padding: 2px;
+        }
+
+        .two {
+            margin-top: 30px;
+            width: 990px;
+            float: left;
+            margin-left: 10px;
+
+        }
+
+        .two h3 {
+            float: left;
+            margin-left: 5px;
+        }
+
+        .item img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .carousel-inner {
+            height: 200px;
+            width: 400px;
+        }
+
+        .four4 a {
+            float: right;
+        }
+
+        .item1 {
+            float: left;
+            width: 200px;
+            height: 200px;
+            margin-left: 10px;
+
+
+        }
+
+        .item1 img {
+            width: 200px;
+            height: 200px;
+        }
+
+
+	</style>
+
+	<div class="container">
+
+
+		<div class="w clear">
+			<div class="bs-example" data-example-id="simple-carousel">
+				<div id="carousel-example-generic" style="width: 900px; height: 400px;" class="carousel slide"
+				     data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li data-target="#carousel-example-generic" data-slide-to="0" class=""></li>
+						<li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+						<li data-target="#carousel-example-generic" data-slide-to="2" class="active"></li>
+					</ol>
+					<div class="carousel-inner" style="width: 900px; height: 400px;" role="listbox">
+						<div style="width: 900px; height: 400px;" class="item">
+							<a href="/det_lun1/">
+								<img style="width: 900px; height: 400px;"
+								     data-src="holder.js/900x500/auto/#777:#555/text:First slide"
+								     alt="First slide [900x500]"
+								     src="{% static 'img/gheymeh.jpeg' %}"
+								     data-holder-rendered="true">
+							</a>
+						</div>
+						<div class="item active left">
+							<a href="/det_lun2/">
+								<img style="width: 900px; height: 400px;"
+								     data-src="holder.js/900x500/auto/#666:#444/text:Second slide"
+								     alt="Second slide [900x500]"
+								     src="{% static 'img/chicken-gyoza.jpeg' %}"
+								     data-holder-rendered="true">
+							</a>
+						</div>
+						<div class="item next left">
+							<a href="/det_lun3/">
+								<img style="width: 900px; height: 400px;"
+								     data-src="holder.js/900x500/auto/#555:#333/text:Third slide"
+								     alt="Third slide [900x500]"
+								     src="{% static 'img/Quesadilla.jpeg' %}"
+								     data-holder-rendered="true">
+							</a>
+						</div>
+					</div>
+					<a class="left carousel-control" href="#carousel-example-generic" role="button"
+					   data-slide="prev">
+						<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="right carousel-control" href="#carousel-example-generic" role="button"
+					   data-slide="next">
+						<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="sub-header">
+
+			<a href="/subpage1/" target="_blank" title="一周最热">
+				<img class="imgLoad" src="//static.meishichina.com/v6/img/zhen/r01.jpg" style="display: block;">
+				Most popular
+			</a>
+			<a href="/subpage2/" target="_blank"
+			   title="人气菜肴">
+				<img class="imgLoad" src="//static.meishichina.com/v6/img/zhen/r02.jpg" style="display: block;">
+				Best taste
+			</a>
+			<a href="/subpage3/" target="_blank" title="春季食谱">
+				<img class="imgLoad" src="//static.meishichina.com/v6/img/zhen/cjsp.png"
+				     style="display: block;">
+				Vegetarianism
+			</a>
+			<a href="/subpage4/" target="_blank" title="高颜值">
+				<img class="imgLoad" src="//static.meishichina.com/v6/img/zhen/r04.jpg" style="display: block;">
+				Gorgeous
+			</a>
+			<a href="/subpage5/" target="_blank" title="快手菜">
+				<img class="imgLoad" src="//static.meishichina.com/v6/img/zhen/r05.jpg" style="display: block;">
+				Fast speed
+			</a>
+			<a href="/subpage6/" target="_blank" title="早餐">
+				<img class="imgLoad" src="//static.meishichina.com/v6/img/zhen/r06.jpg" style="display: block;">
+				Breakfast
+			</a>
+			<a href="/subpage7/" target="_blank" title="家常菜谱">
+				<img class="imgLoad" src="//static.meishichina.com/v6/img/zhen/r07.jpg" style="display: block;">
+				Homely recipes
+			</a>
+			<a href="/subpage8/" target="_blank" title="烘焙大全">
+				<img class="imgLoad" src="//static.meishichina.com/v6/img/zhen/r08.jpg" style="display: block;">
+				Baking
+			</a>
+			<a href="/subpage9/" target="_blank" title="亲子专区">
+				<img class="imgLoad" src="//static.meishichina.com/v6/img/zhen/r09.jpg" style="display: block;">
+				Children's food
+			</a>
+			<a href="/meun/list/" target="_blank" title="所有菜谱">
+				<img class="imgLoad" src="//static.meishichina.com/v6/img/zhen/r10.jpg" style="display: block;">
+				All menu
+			</a>
+
+		</div>
+		<div class="two">
+			<h3><span class="label label-default">recommend</span></h3>
+			<h3><span class="label label-primary">staple food</span></h3>
+			<h3><span class="label label-success">dessert</span></h3>
+			<h3><span class="label label-info">snack</span></h3>
+			<h3><span class="label label-warning">fast food</span></h3>
+			<h3><span class="label label-danger">western food</span></h3>
+			<h3><span class="label label-success">all categories</span></h3>
+		</div>
+
+		<div class="three">
+			<div class="bs-example" data-example-id="thumbnails-with-custom-content">
+				<div class="row">
+					<div class="col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<img data-src="holder.js/100%x200" alt="100%x200"
+							     src="{% static 'img/gheymeh.jpeg' %}" data-holder-rendered="true"
+							     style="height: 200px; width: 100%; display: block;">
+							<div class="caption">
+								<h3>Recipe1-Gheymeh</h3>
+								<p> Gheimeh is an Iranian stew consisting of diced mutton, tomatoes, split peas, onion and dried lime, garnished with golden thinly sliced crispy potatoes. The stew is sometimes garnished with fried eggplant and is usually served with white rice. </p>
+								<p><a href="/thirdpage1/" class="btn btn-primary" role="button">Detail</a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<img data-src="holder.js/100%x200" alt="100%x200" src="{% static 'img/kalbi.jpeg' %}"
+							     data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
+							<div class="caption">
+								<h3>Recipe2-Kalbi beef</h3>
+								<p>Kalbi is a classic Korean Barbeque Short Ribs dish, perfect for summer grilling, but perfectly suitable to make any time of year. This recipe has my Korean mama’s secret ingredient for extra tender short ribs!.</p>
+								<p><a href="/thirdpage2/" class="btn btn-primary" role="button">Detail</a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<img data-src="holder.js/100%x200" alt="100%x200" src="{% static 'img/Sholezard.jpeg' %}"
+							     data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
+							<div class="caption">
+								<h3>Recipe3-Sholezard </h3>
+								<p>Sholezard is an Iranian traditional saffron rice pudding dessert. It is traditionally served on the occasion of festivals such as Ramazan.It is often vowed to cook it to achieve a wish, and when it is achieved, it is spread among others.</p>
+								<p><a href="/thirdpage3/" class="btn btn-primary" role="button">Detail</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="bs-example" data-example-id="thumbnails-with-custom-content">
+				<div class="row">
+					<div class="col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<img data-src="holder.js/100%x200" alt="100%x200"
+							     src="{% static 'img/chicken-gyoza.jpeg' %}" data-holder-rendered="true"
+							     style="height: 200px; width: 100%; display: block;">
+							<div class="caption">
+								<h3>Recipe4-Chicken Gyoza</h3>
+								<p>Chicken gyoza is a delicious appetizer from Japan. These crescent-shaped dumplings are traditionally filled with meat and vegetables and then dipped in a savory sauce.</p>
+								<p><a href="/thirdpage4/" class="btn btn-primary" role="button">Detail</a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<img data-src="holder.js/100%x200" alt="100%x200" src="{% static 'img/ash-reshte.jpeg' %}"
+							     data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
+							<div class="caption">
+								<h3>Recipe5-Aush reshteh</h3>
+								<p>Aush reshteh or aush-e-reshteh is a type of aush featuring reshteh and kashk, commonly made in Iran and Azerbaijan.</p>
+								<p><a href="/thirdpage5/" class="btn btn-primary" role="button">Detail</a> <!--<a href="#"
+								                                                                   class="btn btn-default"
+								                                                                   role="button">Add</a>-->
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<img data-src="holder.js/100%x200" alt="100%x200" src="{% static 'img/vegetable-soup.jpeg' %}"
+							     data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
+							<div class="caption">
+								<h3>Recipe6-Vegetable Soup</h3>
+								<p>A classic vegetable soup recipe, to carry you through fall and keep you cozy, healthy and warm well into the chill of winter.</p>
+								<p><a href="/thirdpage6/" class="btn btn-primary" role="button">Detail</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="bs-example" data-example-id="thumbnails-with-custom-content">
+				<div class="row">
+					<div class="col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<img data-src="holder.js/100%x200" alt="100%x200"
+							     src="{% static 'img/Quesadilla.jpeg' %}" data-holder-rendered="true"
+							     style="height: 200px; width: 100%; display: block;">
+							<div class="caption">
+								<h3>Recipe7-Quesadilla</h3>
+								<p>A quesadilla is a Mexican dish consisting of a tortilla that is filled primarily with cheese, and sometimes meats, spices, and other fillings, and then cooked on a griddle or stove. Traditionally, a corn tortilla is used, but it can also be made with a flour tortilla.</p>
+								<p><a href="/thirdpage7/" class="btn btn-primary" role="button">Detail</a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<img data-src="holder.js/100%x200" alt="100%x200" src="{% static 'img/Butter-Chicken.jpeg' %}"
+							     data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
+							<div class="caption">
+								<h3>Recipe8-Butter chicken</h3>
+								<p>Butter chicken, traditionally known as murgh makhani, an Indian dish which is a type of curry made from chicken with a spiced tomato and butter sauce. Its sauce is known for its rich texture. It is similar to chicken tikka masala, which uses a tomato paste.</p>
+								<p><a href="/thirdpage8/" class="btn btn-primary" role="button">Detail</a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-4">
+						<div class="thumbnail">
+							<img data-src="holder.js/100%x200" alt="100%x200" src="{% static 'img/hummus.jpeg' %}"
+							     data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
+							<div class="caption">
+								<h3>Recipe9-Hummus</h3>
+								<p>Hummus is a Middle Eastern dip, spread, or savory dish made from cooked, mashed chickpeas blended with tahini, lemon juice, and garlic. The standard garnish in the Middle East includes olive oil, a few whole chickpeas, parsley, and paprika. In Middle Eastern cuisine, it is usually eaten as a dip, with pita bread.</p>
+								<p><a href="/thirdpage9/" class="btn btn-primary" role="button">Detail</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<div>
+			<!--<div class="four1">
+				<div class="four1">
+					<div class="four2">
+						<h2 class="on"><a title="时令食材" href="https://www.meishichina.com/YuanLiao/"
+						                  target="_blank">Material</a>
+						</h2>
+					</div>
+
+				</div>
+			</div>
+			<div class="four2">
+				<div class="item1"><img src="{% static 'img/fouman.jpeg' %}"></div>
+				<div class="item1"><img src="{% static 'img/24.jpeg' %}"></div>
+				<div class="item1"><img src="{% static 'img/25.jpeg' %}"></div>
+				<div class="item1"><img src="{% static 'img/26.jpeg' %}"></div>
+
+				<div style="clear: both"></div>
+			</div>
+		</div>-->
+
+	</div>
+
+
+
+	</div>
+
+
+{% endblock %}
