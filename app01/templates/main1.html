@@ -1,0 +1,257 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+	{% load static %}
+	<style>
+        .thumbnail {
+            width: 100%;
+            padding: 2px;
+            margin-bottom: 20px;
+            background-color: #e8e8e8;
+            border: 18px solid honeydew;
+            height: 530px;
+        }
+
+        .sub-header a {
+            float: left;
+            width: 100px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .container .w {
+            background-color: #fff;
+        }
+
+        .w {
+            width: 1170px;
+            height: 400px;
+            margin-left: -15px;
+        }
+
+
+        .sub-header a img {
+            width: 60px;
+            height: 60px;
+
+            margin: 0 auto 5px;
+            border-radius: 50%;
+        }
+
+
+        .sub-header {
+            margin-top: 20px;
+            margin-left: 80px;
+            width: 1170px;
+
+        }
+
+        .row {
+            position: relative;
+            padding-top: 15px;
+            margin-left: 5px;
+        }
+
+        .item img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .carousel-inner {
+            height: 200px;
+            width: 1170px;
+        }
+
+        .four4 a {
+            float: right;
+        }
+
+        .item1 img {
+            width: 400px;
+            height: 200px;
+        }
+
+
+        .caption {
+            height: 150px;
+        }
+
+        .avatar {
+            color: #fff;
+            background-color: #adb5bd;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            border-radius: 50%;
+            height: 35px;
+            width: 35px;
+            float: right;
+        }
+
+        .bg-red {
+            background-color: #f03 !important;
+        }
+
+        .sub-header1 {
+            width: 1170px;
+            height: 50px;
+        }
+
+        .sub-header3 a {
+            width: 124px;
+            margin-left: 15px;
+        }
+
+        .sub-header3 {
+            margin-left: 75px;
+            margin-top: 70px;
+        }
+
+        .bs-example {
+            width: 1170px;
+            margin-left: 0;
+
+        }
+
+        .sider {
+            min-height: calc(100vh - 60px);
+            background: #ffffff;
+            font-family: "Roboto", sans-serif;
+            font-weight: 400;
+            padding: 0;
+            width: 257px;
+
+
+            border-right: 2px solid #e3e3e3;
+            border-bottom: 2px solid #e3e3e3;
+        }
+
+        .nav-item {
+            border-bottom: 2px solid #e3e3e3;
+            margin-top: 50px;
+        }
+
+        .text-white {
+            color: #fff !important;
+        }
+
+
+	</style>
+
+
+
+
+
+	<div class="sider" style="float: left">
+		<ul class="nav">
+			<li class="nav-item" style="margin-top: 1px">
+				<a style="background-color:#000; " href="/main/"
+				   class="list-group-item list-group-item-warning"><h3 class="text-white">Home</h3></a>
+			</li>
+			<li class="nav-item">
+				<a style="background-color: #ff5916 !important; " href="/main1/" class="list-group-item list-group-item-warning">
+					<h3 class="text-white">My own recipes</h3></a>
+			</li>
+			<li class="nav-item">
+				<a style="background-color: #44c553 !important; " href="/meun/main/add/"
+				   class="list-group-item list-group-item-success"><h3 class="text-white">Create recipe</h3></a>
+			</li>
+			<li class="nav-item">
+				<a style="background-color: #7832e2 !important; " href="/meun/main/add1/"
+				   class="list-group-item list-group-item-info"><h3 class="text-white">Customize recipe</h3></a>
+			</li>
+			<li class="nav-item">
+				<a style="background-color: #35bdff !important; " href="/meun/main/add/"
+				   class="list-group-item list-group-item-danger"><h3 class="text-white">Share recipes</h3></a>
+			</li>
+
+			<li class="nav-item active">
+				<a style="background-color: #ffde03 !important;" href="/meun/main/add/"
+				   class="list-group-item list-group-item-primary"><h3 class="text-white">***</h3></a>
+			</li>
+
+		</ul>
+	</div>
+
+	<div class="container" style="margin-right: 0; margin-top: -20px; background-color: #f3f3f3">
+		<h1></h1>
+		<div class="panel panel-danger">
+				<div class="panel-heading">
+					<h3 class="panel-title"><h3>My own recipes</h3></h3>
+				</div>
+
+		</div>
+
+
+
+		<div class="bs-example" data-example-id="thumbnails-with-custom-content">
+			<div class="row">
+				<div class="row1">
+					{% for obj in queryset %}
+						<div class="col-sm-6 col-md-4">
+							<div class="thumbnail">
+								<img style="width: 290px ;height:290px" src="/media/{{ obj.img }}"
+								     data-src="holder.js/100%x200" alt="100%x200">
+								<div class="caption" id="formAdd">
+
+									<h2>{{ obj.name }}</h2>
+									<h5>Category: {{ obj.get_cate_display }}</h5>
+									<h5>Description: {{ obj.description }}</h5>
+									<h5>Comment: {{ obj.get_rate_display }}</h5>
+									<h5>Calories: {{ obj.calories }} kal</h5>
+
+
+									<div style="float: right; margin-top: -50px">
+										<form action="/meun/{{ obj.id }}/det1/" method="POST">
+											{% csrf_token %}
+											<p>Quantity: <input type="text" name="toolss"
+											                    style="width: 40px; border: 2px solid greenyellow"
+											                    value="{{ obj.quan }}"></p>
+
+											<input style="width: 100px" class="btn btn-success" role="button"
+											       type="submit" value="Start!!!"/>
+										</form>
+
+									</div>
+
+
+								</div>
+
+							</div>
+						</div>
+					{% endfor %}
+
+				</div>
+			</div>
+			<ul class="pagination">
+				{{ page_string }}
+			</ul>
+		</div>
+	</div>
+
+{% endblock %}
+{% block js %}
+	<script>
+        $(function () {
+            bindBtnSaveEvent();
+
+        })
+
+        function bindBtnSaveEvent() {
+            $("#btnSave").click(function () {
+                alert("Save Successfully in my favorite");
+
+
+            });
+        }
+
+
+	</script>
+
+
+
+{% endblock %}
+

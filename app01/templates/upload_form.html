@@ -1,8 +1,63 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-	<div class="container">
-		<div class="panel panel-default">
+	<style>
+        .sider {
+            min-height: calc(100vh - 60px);
+            background: #ffffff;
+            font-family: "Roboto", sans-serif;
+            font-weight: 400;
+            padding: 0;
+            width: 257px;
+
+
+            border-right: 2px solid #e3e3e3;
+            border-bottom: 2px solid #e3e3e3;
+        }
+
+        .nav-item {
+            border-bottom: 2px solid #e3e3e3;
+            margin-top: 50px;
+        }
+
+        .text-white {
+            color: #fff !important;
+        }
+
+	</style>
+	<div class="sider" style="float: left">
+		<ul class="nav">
+			<li class="nav-item" style="margin-top: -19px">
+				<a style="background-color:#000; " href="/main/"
+				   class="list-group-item list-group-item-warning"><h3 class="text-white">Home</h3></a>
+			</li>
+			<li class="nav-item">
+				<a style="background-color: #ff5916 !important; " href="/main1/"
+				   class="list-group-item list-group-item-warning">
+					<h3 class="text-white">My own recipes</h3></a>
+			</li>
+			<li class="nav-item">
+				<a style="background-color: #44c553 !important; " href="/meun/main/add/"
+				   class="list-group-item list-group-item-success"><h3 class="text-white">Create recipe</h3></a>
+			</li>
+			<li class="nav-item">
+				<a style="background-color: #7832e2 !important; " href="/meun/main/add1/"
+				   class="list-group-item list-group-item-info"><h3 class="text-white">Customize recipe</h3></a>
+			</li>
+			<li class="nav-item">
+				<a style="background-color: #35bdff !important; " href="/meun/main/add/"
+				   class="list-group-item list-group-item-danger"><h3 class="text-white">Share recipes</h3></a>
+			</li>
+
+			<li class="nav-item active">
+				<a style="background-color: #ffde03 !important;" href="/meun/main/add/"
+				   class="list-group-item list-group-item-primary"><h3 class="text-white">***</h3></a>
+			</li>
+
+		</ul>
+	</div>
+	<div class="container" style="float: right">
+		<div class="panel panel-success">
 			<div class="panel-heading">{{ title }}</div>
 			<div class="panel-body">
 				<form method="post" enctype="multipart/form-data" novalidate>

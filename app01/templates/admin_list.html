@@ -13,7 +13,7 @@
 				<form method="get">
 					<div class="input-group">
 
-						<input type="text" name="q" class="form-control" placeholder="关键字"
+						<input type="text" name="q" class="form-control" placeholder="Keyword"
 						       value="{{ search_data }}">
 						<span class="input-group-btn">
                         <button class="btn btn-default" type="submit">
@@ -33,10 +33,10 @@
 			<thead>
 			<tr>
 				<th>ID</th>
-				<th>用户名</th>
-				<th>密码</th>
-				<th>重置密码</th>
-				<th>操作</th>
+				<th>Username</th>
+				<th>Password</th>
+				<th>Reset password</th>
+				<th>Operation</th>
 			</tr>
 			</thead>
 			<tbody>
@@ -46,11 +46,11 @@
 					<td>{{ obj.username }}</td>
 					<td>*******</td>
 					<td>
-						<a href="/admin/{{ obj.id }}/reset/">重置密码</a>
+						<a href="/admin/{{ obj.id }}/reset/">Reset password</a>
 					</td>
 					<td>
-						<a class="btn btn-primary btn-xs" href="/admin/{{ obj.id }}/edit/">编辑</a>
-						<a class="btn btn-danger btn-xs" href="/admin/{{ obj.id }}/delete/">删除</a>
+						<a class="btn btn-primary btn-xs" href="/admin/{{ obj.id }}/edit/">Edit</a>
+						<a class="btn btn-danger btn-xs" href="/admin/{{ obj.id }}/delete/">Delete</a>
 					</td>
 				</tr>
 			{% endfor %}

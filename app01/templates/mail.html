@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<form action="/mail/" method="POST">
+	{% csrf_token %}
+	<p>Quantity: <input type="text" name="tools"
+	                    style="width: 40px; border: 2px solid greenyellow"
+	                    value="mail"></p>
+
+	<input style="width: 100px" class="btn btn-success" role="button"
+	       type="submit" value="Submit here"/>
+</form>
+
+</body>
+</html>

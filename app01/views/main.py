@@ -1,61 +1,111 @@
 from app01.utils.bootstrap import BootStrapModelForm
 from app01.utils.pagination import Pagination
-
+from django import forms
 from django.shortcuts import render, redirect
 from app01 import models
 
 
+class MainMenuModelForm(BootStrapModelForm):
+    class Meta:
+        model = models.home
+        fields = "__all__"
+        # exclude = ["id"]
+
+
+class MainMenuModelForm1(BootStrapModelForm):
+    class Meta:
+        model = models.cust_recipe
+        fields = "__all__"
+        # exclude = ["id"]
+
+
+# Main menu
 def home(request):
-    # info = request.session.get("info")
-    # if not info:
-    #     return redirect('/login/')
-    return render(request, 'main.html')
+    # # Search function
+
+    search_data = request.GET.get('q', "")
+
+    queryset = models.home.objects.filter(name__icontains=search_data)
+    if queryset:
+        page_object = Pagination(request, queryset)
+        context = {
+            "search_data": search_data,
+            "queryset": page_object.page_queryset,
+            "page_string": page_object.html(),
+        }
+        return render(request, 'main.html', context)
+
+    queryset = models.home.objects.filter(calories__icontains=search_data)
+
+    page_object = Pagination(request, queryset)
+    context = {
+        "search_data": search_data,
+        "queryset": page_object.page_queryset,
+        "page_string": page_object.html(),
+    }
+    return render(request, 'main.html', context)
 
 
+def home1(request):
+    # # Search function
+
+    search_data = request.GET.get('q', "")
+
+    queryset = models.cust_recipe.objects.filter(name__icontains=search_data)
+    if queryset:
+        page_object = Pagination(request, queryset)
+        context = {
+            "search_data": search_data,
+            "queryset": page_object.page_queryset,
+            "page_string": page_object.html(),
+        }
+        return render(request, 'main1.html', context)
+
+    queryset = models.cust_recipe.objects.filter(calories__icontains=search_data)
+
+    page_object = Pagination(request, queryset)
+    context = {
+        "search_data": search_data,
+        "queryset": page_object.page_queryset,
+        "page_string": page_object.html(),
+    }
+    return render(request, 'main1.html', context)
+
+
+def main_menu_add(request):
+    """ Add the menu in main page """
+    title = "Create your new menu"
+    if request.method == 'GET':
+        form = MainMenuModelForm()
+
+        return render(request, 'upload_form.html', {"form": form, "title": title})
+    form = MainMenuModelForm(data=request.POST, files=request.FILES)
+    if form.is_valid():
+        form.save()
+        return redirect('/main/')
+    return render(request, 'upload_form.html', {"form": form, "title": title})
+
+
+def main_menu_add1(request):
+    """ Add the menu in main page for customer """
+    title = "Create your new menu(customize)"
+    if request.method == 'GET':
+        form = MainMenuModelForm1()
+
+        return render(request, 'upload_form.html', {"form": form, "title": title})
+    form = MainMenuModelForm1(data=request.POST, files=request.FILES)
+    if form.is_valid():
+        form.save()
+        return redirect('/main1/')
+    return render(request, 'upload_form.html', {"form": form, "title": title})
+
+
+# Second menu
 class MenuModelForm(BootStrapModelForm):
     class Meta:
         model = models.Menu
         fields = "__all__"
         # exclude = ["id"]
-
-
-def list_meun(request):
-    """ Menu list """
-    data_dict = {}
-    # Search function
-    search_data = request.GET.get('q', "")
-
-    if search_data:
-        data_dict["name__contains"] = search_data
-
-
-
-
-    queryset = models.Menu.objects.filter(**data_dict).order_by("id")
-
-    page_object = Pagination(request, queryset)
-
-    context = {"search_data": search_data,
-               "queryset": page_object.page_queryset,  # 分完页的数据
-               "page_string": page_object.html()  # 生成的页码
-               }
-    return render(request, 'meun_list.html', context)
-    # data_dict = {}
-    # search_data = request.GET.get('q', "")
-    # if search_data:
-    #     data_dict["name__contains"] = search_data
-    #
-    # queryset = models.Menu.objects.filter(**data_dict).order_by("id")
-    # # queryset = models.Menu.objects.all().order_by("-id")
-    # page_object = Pagination(request, queryset)
-    # form = MenuModelForm()
-    #
-    # context = {
-    #     "form": form,
-    #     "queryset": page_object.page_queryset,  # 分完页的数据
-    #     "page_string": page_object.html()  # 生成的页码
-    # }
-    # return render(request, 'meun_list.html', context)
 
 
 def add_meun(request):
@@ -66,7 +116,6 @@ def add_meun(request):
         return render(request, 'upload_form.html', {"form": form, "title": title})
     form = MenuModelForm(data=request.POST, files=request.FILES)
     if form.is_valid():
-
         form.save()
         return redirect('/meun/list/')
     return render(request, 'upload_form.html', {"form": form, "title": title})
@@ -89,5 +138,5 @@ def edit_meun(request, nid):
 
 
 def delete_meun(request, nid):
-    models.Menu.objects.filter(id=nid).delete()
+    models.home.objects.filter(id=nid).delete()
     return redirect('/meun/list/')

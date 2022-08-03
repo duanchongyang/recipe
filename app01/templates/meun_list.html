@@ -1,45 +1,60 @@
 {% extends 'layout.html' %}
 
 {% block content %}
+	<style>
+        .btn-danger {
+            color: #fff;
+            background: #f03 linear-gradient(180deg, #ff2652, #f03) repeat-x;
+            border-color: #f03;
+            box-shadow: none;
+        }
+
+
+	</style>
 	<div class="container">
 		<div style="margin-bottom: 10px">
-
-			<a class="btn btn-success" href="/meun/add/">    {#target="_blank"#}
-				<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
-				Create new recipe
-			</a>
 		</div>
+		<h1>My favorite</h1>
 		<table class="table">
+
 			<caption>
 				<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
-				Menu list
+				My Favorite
 			</caption>
 			<thead>
-			<tr>
-				{#				<th>ID</th>#}
+			<tr class="success">
+
 				<th><h3>Picture</h3></th>
 				<th><h3>Name</h3></th>
-				<th><h3>Time</h3></th>
-				<th><h3>Temperature</h3></th>
-				<th><h3>Material</h3></th>
+
+				<th><h3>description</h3></th>
+				<th><h3>rate</h3></th>
+				<th><h3>calories</h3></th>
+
+
 				<th><h3>Operation</h3></th>
 			</tr>
 			</thead>
 			<tbody>
-			{% for obj in queryset %}
-				<tr uid="{{ obj.id }}">
+			{% for obj in queryset2 %}
+				<tr uid="{{ obj.id }}" class="success">
 					<td>
 						<img src="/media/{{ obj.img }}" style="height: 200px">
 					</td>
-					{#					<th>{{ obj.id }}</th>#}
-					<td><h3>{{ obj.name }}</h3></td>
-					<td><h3>{{ obj.time }}</h3></td>
-					<td><h3>{{ obj.tem }}</h3></td>
-					<td><h3>{{ obj.inter }}</h3></td>
 
+					<td><h4>{{ obj.name }}</h4></td>
+
+					<td><h4>{{ obj.description }}</h4></td>
+					<td><h4>{{ obj.get_rate_display }}</h4></td>
+					<td><h4>{{ obj.calories }}</h4></td>
 					<td>
-						<a class="btn btn-primary btn-lg" href="/meun/{{ obj.id }}/edit/">Edit</a>
-						<a class="btn btn-danger btn-lg" href="/meun/{{ obj.id }}/delete/">Delete</a>
+						<form style="padding-top: 4px;" action="/meun/{{ obj.id }}/list2/" method="POST">
+							{% csrf_token %}
+							Quantity:
+							<input  type="text" name="tools" style="width:80px; height: 34px ; border: 3px solid skyblue" value="{{ obj.quan }}">
+							<input class="btn btn-success" style="width: 80px" role="button" type="submit" value="Start"/>
+							<a class="btn btn-danger" style="width: 80px" href="/meun/{{ obj.id }}/delete/">Remove</a>
+						</form>
 					</td>
 				</tr>
 			{% endfor %}
@@ -51,5 +66,4 @@
 
 
 	</div>
-
 {% endblock %}

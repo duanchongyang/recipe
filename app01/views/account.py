@@ -124,3 +124,7 @@ def logout(request):
     request.session.clear()
 
     return redirect('/login/')
+
+
+def person(request):
+    return render(request, 'personal.html')

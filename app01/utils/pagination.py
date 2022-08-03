@@ -27,7 +27,7 @@ from django.utils.safestring import mark_safe
 
 
 class Pagination(object):
-    def __init__(self, request, queryset, page_size=10, page_param="page", plus=5):
+    def __init__(self, request, queryset, page_size=9, page_param="page", plus=5):
         """
 
         :param request: 请求的对象
@@ -94,16 +94,16 @@ class Pagination(object):
         self.query_dict.setlist(self.page_param, [1])
 
         # 首页
-        page_str_list.append('<li><a href="?{}">first</a></li>'.format(self.query_dict.urlencode()))
+        page_str_list.append('<li><a href="?{}">First</a></li>'.format(self.query_dict.urlencode()))
         # 上一页
         if self.page > 1:
             self.query_dict.setlist(self.page_param, [self.page - 1])
 
-            prev = '<li><a href="?page={}">last page</a></li>'.format(self.query_dict.urlencode())
+            prev = '<li><a href="?page={}">Last page</a></li>'.format(self.query_dict.urlencode())
 
         else:
             self.query_dict.setlist(self.page_param, [1])
-            prev = '<li><a href="?{}">last page</a></li>'.format(self.query_dict.urlencode())
+            prev = '<li><a href="?{}">Last page</a></li>'.format(self.query_dict.urlencode())
         page_str_list.append(prev)
 
         # 页面
@@ -121,15 +121,15 @@ class Pagination(object):
         if self.page < self.total_page_count:
             self.query_dict.setlist(self.page_param, [self.page + 1])
 
-            prev = '<li><a href="?{}">next page</a></li>'.format(self.query_dict.urlencode())
+            prev = '<li><a href="?{}">Next page</a></li>'.format(self.query_dict.urlencode())
 
         else:
             self.query_dict.setlist(self.page_param, [self.total_page_count])
-            prev = '<li><a href="?{}">next page</a></li>'.format(self.query_dict.urlencode())
+            prev = '<li><a href="?{}">Next page</a></li>'.format(self.query_dict.urlencode())
         page_str_list.append(prev)
         # 尾页
         self.query_dict.setlist(self.page_param, [self.total_page_count])
-        page_str_list.append('<li><a href="?{}">final page</a></li>'.format(self.query_dict.urlencode()))
+        page_str_list.append('<li><a href="?{}">Final page</a></li>'.format(self.query_dict.urlencode()))
 
         search_string = """
             <li>
@@ -138,7 +138,7 @@ class Pagination(object):
                     <input type="text" name="page" style="position: relative; float: left; display: inline-block; 
                     width: 130px; border-radius: 0"  class="form-control" placeholder="Number of page"> 
 
-                    <button style="border-radius: 0" class="btn btn-primary" type="submit">go to...</button>
+                    <button style="border-radius: 0" class="btn btn-primary" type="submit">Go to...</button>
                 </form>
             </li>
             """

@@ -6,38 +6,84 @@ from django.views.decorators.csrf import csrf_exempt
 
 
 def page(request):
-    # info = request.session.get("info")
-    # if not info:
-    #     return redirect('/login/')
-    return render(request, 'subpage1.html')
+    """ Most popular """
+
+    queryset = models.home.objects.filter(cate=1)
+
+    return render(request, 'subpage1.html', {"queryset": queryset})
 
 
 def page2(request):
-    return render(request, 'subpage2.html')
+    """ Best taste """
+    queryset = models.home.objects.filter(cate=2)
+    return render(request, 'subpage1.html', {"queryset": queryset})
 
 
 def page3(request):
-    return render(request, 'subpage3.html')
+    """ VEGETARIANISM"""
+    queryset = models.home.objects.filter(cate=3)
+    return render(request, 'subpage1.html', {"queryset": queryset})
 
 
 def page4(request):
-    return render(request, 'subpage4.html')
+    """ Gorgeous """
+    queryset = models.home.objects.filter(cate=4)
+    return render(request, 'subpage1.html', {"queryset": queryset})
 
 
 def page5(request):
-    return render(request, 'subpage5.html')
+    """ Fast Food """
+    queryset = models.home.objects.filter(cate=5)
+    return render(request, 'subpage1.html', {"queryset": queryset})
 
 
 def page6(request):
-    return render(request, 'subpage6.html')
+    """ Breakfast """
+    queryset = models.home.objects.filter(cate=6)
+    return render(request, 'subpage1.html', {"queryset": queryset})
 
 
 def page7(request):
-    return render(request, 'subpage7.html')
+    """ Homely recipes """
+    queryset = models.home.objects.filter(cate=7)
+    return render(request, 'subpage1.html', {"queryset": queryset})
+
 
 def page8(request):
-    return render(request, 'subpage8.html')
+    """ Baking """
+    queryset = models.home.objects.filter(cate=8)
+    return render(request, 'subpage1.html', {"queryset": queryset})
 
 
 def page9(request):
-    return render(request, 'subpage9.html')
+    """ Child's food"""
+    queryset = models.home.objects.filter(cate=9)
+    return render(request, 'subpage1.html', {"queryset": queryset})
+
+def page10(request):
+    """ Recommand """
+    queryset = models.home.objects.filter(cate=9)
+    return render(request, 'subpage1.html', {"queryset": queryset})
+
+def page11(request):
+    """ Staple food"""
+    queryset = models.home.objects.filter(cate=11)
+    return render(request, 'subpage1.html', {"queryset": queryset})
+
+
+def page12(request):
+    """ Dessert food"""
+    queryset = models.home.objects.filter(cate=12)
+    return render(request, 'subpage1.html', {"queryset": queryset})
+
+
+def page13(request):
+    """ Snack food"""
+    queryset = models.home.objects.filter(cate=13)
+    return render(request, 'subpage1.html', {"queryset": queryset})
+
+
+def page14(request):
+    """ Western food"""
+    queryset = models.home.objects.filter(cate=14)
+    return render(request, 'subpage1.html', {"queryset": queryset})

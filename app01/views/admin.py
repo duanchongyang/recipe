@@ -9,17 +9,8 @@ from app01.utils.encrypt import md5
 
 
 def admin_list(request):
-    """ 管理员列表 """
-    # info_dict = request.session["info"] #info 是一个字典
-    # print(info_dict["id"])
-    # print(info_dict["name"])
-    # 检查用户是否登录，已登录，继续往下走，未登录，跳转回登录页面
-    # 用户发来请求，获取他的cookie中的随机字符串，观察session是否有这个随机字符串
-    # request.session["info"]
+    """ Admin list """
 
-    # info = request.session.get("info")
-    # if not info:
-    #     return redirect('/login/')
 
     # 搜索
     data_dict = {}

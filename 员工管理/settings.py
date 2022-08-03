@@ -84,7 +84,7 @@ WSGI_APPLICATION = '员工管理.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # Django自动连接mysql
-        'NAME': 'gx_day16',  # 想要链接的数据库的名字
+        'NAME': 'food12',  # 想要链接的数据库的名字
         'USER': 'root',  # 数据库的用户名字。
         'PASSWORD': '888888',  # 密码
         'HOST': '127.0.0.1',  # 哪台机器安装了mysql
@@ -134,3 +134,25 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#
+# EMAIL_USE_TLS = False
+# EMAIL_HOST = 'smtp.126.com'
+# EMAIL_PORT = 25
+# EMAIL_HOST_USER = 'jingyumengdcy@126.com'
+# EMAIL_HOST_PASSWORD = 'STUAUTWEOFKXBOQX'
+# # DEFAULT_FROM_EMAIL = 'mail@tuweizhong.com'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = False   # 是否使用TLS安全传输协议
+EMAIL_USE_SSL = True    # 是否使用SSL加密，qq企业邮箱要求使用
+# SMTP地址
+EMAIL_HOST = 'smtp.126.com'
+# SMTP端口
+EMAIL_PORT = 465
+# 自己的邮箱
+EMAIL_HOST_USER = 'jingyumengdcy@126.com'
+# 自己的邮箱授权码，非密码
+EMAIL_HOST_PASSWORD = 'STUAUTWEOFKXBOQX'
+EMAIL_SUBJECT_PREFIX = '[迎风而来的博客]'
